@@ -1,0 +1,141 @@
+@use "../../../app/styles/functions" as *;
+@use "../../../app/styles/mixins" as *;
+
+.root {
+  padding: rem(100) 0;
+  background: var(--color-bg-elevated);
+
+  @include respond-to(mobile) {
+    padding: rem(72) 0;
+  }
+}
+
+.header {
+  margin-bottom: rem(56);
+
+  @include respond-to(mobile) {
+    margin-bottom: rem(40);
+  }
+}
+
+.label {
+  font-size: rem(12);
+  font-weight: 600;
+  letter-spacing: rem(2.5);
+  text-transform: uppercase;
+  color: var(--color-accent);
+  margin-bottom: rem(12);
+}
+
+.title {
+  font-family: var(--font-heading);
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  font-weight: 700;
+  color: var(--color-text-primary);
+  margin: 0;
+}
+
+.timeline {
+  position: relative;
+  max-width: rem(720);
+  margin: 0 auto;
+  padding-left: rem(28);
+
+  &::before {
+    content: "";
+    position: absolute;
+    left: rem(7);
+    top: rem(6);
+    bottom: rem(6);
+    width: 1px;
+    background: linear-gradient(
+      180deg,
+      var(--color-accent) 0%,
+      var(--color-border) 35%,
+      var(--color-border) 100%
+    );
+  }
+}
+
+.item {
+  position: relative;
+  padding-bottom: rem(48);
+
+  &:last-child {
+    padding-bottom: 0;
+  }
+}
+
+.dot {
+  position: absolute;
+  left: rem(-21);
+  top: rem(6);
+  width: rem(14);
+  height: rem(14);
+  border-radius: 50%;
+  background: var(--color-bg-elevated);
+  border: 2px solid var(--color-accent);
+  box-shadow: 0 0 0 rem(4) rgba(201, 168, 76, 0.12);
+}
+
+.card {
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: rem(12);
+  padding: rem(28) rem(32);
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+
+  &:hover {
+    border-color: rgba(201, 168, 76, 0.25);
+    box-shadow: 0 rem(12) rem(40) rgba(0, 0, 0, 0.35);
+  }
+
+  @include respond-to(mobile) {
+    padding: rem(22) rem(20);
+  }
+}
+
+.role {
+  font-family: var(--font-heading);
+  font-size: rem(20);
+  font-weight: 600;
+  color: var(--color-text-primary);
+  margin: 0 0 rem(6);
+}
+
+.meta {
+  font-size: rem(14);
+  color: var(--color-accent);
+  font-weight: 500;
+  margin-bottom: rem(18);
+}
+
+.list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.listItem {
+  position: relative;
+  padding-left: rem(18);
+  font-size: rem(15);
+  line-height: 1.65;
+  color: var(--color-text-secondary);
+  margin-bottom: rem(10);
+
+  &::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: rem(9);
+    width: rem(6);
+    height: rem(6);
+    border-radius: 50%;
+    background: var(--color-text-muted);
+  }
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}

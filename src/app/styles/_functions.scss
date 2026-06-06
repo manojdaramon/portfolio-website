@@ -1,0 +1,51 @@
+@use "sass:map";
+@use "sass:math";
+
+// =====================================================
+// BREAKPOINTS
+// =====================================================
+$desktop: 90rem; // 1440px
+$laptop: 80rem; // 1280px
+$tablet: 64rem; // 1024px
+$tablet-sm: 48rem; // 768px
+$mobile: 36rem; // 576px
+$mobile-sm: 23.4375rem; // 375px
+
+// =====================================================
+// FONTS
+// =====================================================
+$font-heading: var(--font-inter), 'Helvetica Neue', Helvetica, Arial, sans-serif;
+$font-body: var(--font-inter), 'Helvetica Neue', Helvetica, Arial, sans-serif;
+$font-mono: 'Courier New', Courier, monospace;
+
+// =====================================================
+// LAYOUT
+// =====================================================
+$max-width-content: 90rem; // Wide for Netflix style
+$header-height: 4.5rem;
+
+// =====================================================
+// FUNCTIONS
+// =====================================================
+
+// Pixel to Rem
+@function rem($pixel) {
+    @if math.is-unitless($pixel) {
+        @return math.div($pixel, 16)+rem;
+    }
+
+    @else {
+        @error "Don't use units when using the rem() function; only numbers.";
+    }
+}
+
+// Pixel to Em
+@function em($pixel) {
+    @if math.is-unitless($pixel) {
+        @return math.div($pixel, 16)+em;
+    }
+
+    @else {
+        @error "Don't use units when using the em() function; only numbers.";
+    }
+}

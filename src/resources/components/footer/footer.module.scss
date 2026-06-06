@@ -1,0 +1,36 @@
+@use "../../../app/styles/functions" as *;
+@use "../../../app/styles/mixins" as *;
+
+.root {
+  border-top: 1px solid var(--color-border);
+  padding: rem(28) 0 rem(40);
+  background: var(--color-bg-primary);
+}
+
+.inner {
+  max-width: $max-width-content;
+  margin: 0 auto;
+  padding: 0 rem(24);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: rem(16);
+
+  @include respond-to(mobile) {
+    padding: 0 rem(16);
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+.name {
+  font-size: rem(15);
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.copy {
+  font-size: rem(13);
+  color: var(--color-text-muted);
+}

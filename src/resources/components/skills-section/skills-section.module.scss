@@ -1,0 +1,107 @@
+@use "../../../app/styles/functions" as *;
+@use "../../../app/styles/mixins" as *;
+
+.root {
+  padding: rem(100) 0;
+  background: var(--color-bg-elevated);
+
+  @include respond-to(mobile) {
+    padding: rem(72) 0;
+  }
+}
+
+.header {
+  margin-bottom: rem(48);
+
+  @include respond-to(mobile) {
+    margin-bottom: rem(36);
+  }
+}
+
+.label {
+  font-size: rem(12);
+  font-weight: 600;
+  letter-spacing: rem(2.5);
+  text-transform: uppercase;
+  color: var(--color-accent);
+  margin-bottom: rem(12);
+}
+
+.title {
+  font-family: var(--font-heading);
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  font-weight: 700;
+  color: var(--color-text-primary);
+  margin: 0;
+}
+
+.groups {
+  display: flex;
+  flex-direction: column;
+  gap: rem(40);
+}
+
+.groupTitle {
+  font-size: rem(13);
+  font-weight: 600;
+  letter-spacing: rem(2);
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  margin-bottom: rem(20);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: rem(16);
+
+  @include respond-to(laptop) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  @include respond-to(tablet-sm) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @include respond-to(mobile) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.cell {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: rem(12);
+  padding: rem(24) rem(16);
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: rem(12);
+  transition: border-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+
+  &:hover {
+    border-color: rgba(201, 168, 76, 0.35);
+    transform: translateY(rem(-4));
+    box-shadow: 0 rem(10) rem(32) rgba(0, 0, 0, 0.25);
+
+    .icon {
+      color: var(--color-accent);
+      transform: scale(1.08);
+    }
+  }
+}
+
+.icon {
+  width: rem(40);
+  height: rem(40);
+  color: var(--color-text-secondary);
+  transition: color 0.25s ease, transform 0.25s ease;
+}
+
+.skillName {
+  font-size: rem(13);
+  font-weight: 600;
+  color: var(--color-text-primary);
+  text-align: center;
+}
