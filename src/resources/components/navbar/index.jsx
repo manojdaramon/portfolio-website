@@ -4,10 +4,10 @@ import { useEffect, useState } from "react";
 import styles from "./navbar.module.scss";
 
 const LINKS = [
+  { href: "#skills", label: "Skills" },
   { href: "#about", label: "About" },
   { href: "#experience", label: "Experience" },
   { href: "#projects", label: "Projects" },
-  { href: "#skills", label: "Skills" },
   { href: "#contact", label: "Contact" },
 ];
 
