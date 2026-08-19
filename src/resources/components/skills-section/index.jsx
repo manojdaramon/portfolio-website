@@ -59,14 +59,8 @@ function IconReact() {
 
 function IconNext() {
   return (
-    <svg className={styles.icon} viewBox="0 0 24 24" fill="none" aria-hidden>
-      <path
-        d="M12 3L3 6.5v11L12 21l9-3.5v-11L12 3z"
-        stroke="currentColor"
-        strokeWidth="1.3"
-        strokeLinejoin="round"
-      />
-      <path d="M9 8.5v7l6-7v7" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round" />
+    <svg className={styles.icon} viewBox="0 0 24 24" fill="currentColor" aria-hidden>
+      <path d="M12 0C5.373 0 0 5.373 0 12c0 6.627 5.373 12 12 12 6.627 0 12-5.373 12-12C24 5.373 18.627 0 12 0zm1.758 15.398l-4.524-6.232v6.232H7.404V8.602h1.684l4.524 6.233V8.602h1.838v6.796h-1.69z" />
     </svg>
   );
 }
