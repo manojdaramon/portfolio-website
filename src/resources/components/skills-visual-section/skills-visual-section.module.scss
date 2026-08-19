@@ -2,20 +2,61 @@
 @use "../../../app/styles/mixins" as *;
 
 .root {
-  padding: rem(100) 0;
+  padding: rem(64) 0;
+  scroll-margin-top: rem(80);
   background: var(--color-bg-primary); // Matches primary dark background
 
   @include respond-to(mobile) {
-    padding: rem(72) 0;
+    padding: rem(48) 0;
+    scroll-margin-top: rem(68);
   }
 }
 
 .header {
-  margin-bottom: rem(48);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-bottom: rem(36);
 
   @include respond-to(mobile) {
-    margin-bottom: rem(36);
+    margin-bottom: rem(28);
   }
+}
+
+.labelPill {
+  display: inline-flex;
+  align-items: center;
+  gap: rem(10);
+  padding: rem(10) rem(24);
+  border-radius: rem(9999);
+  background: linear-gradient(135deg, rgba(26, 24, 18, 0.85) 0%, rgba(12, 12, 12, 0.95) 100%);
+  border: 1px solid rgba(201, 168, 76, 0.35);
+  box-shadow:
+    0 4px 24px rgba(0, 0, 0, 0.5),
+    0 0 20px rgba(201, 168, 76, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+.sparkIcon {
+  width: rem(14);
+  height: rem(14);
+  color: var(--color-accent);
+  filter: drop-shadow(0 0 6px rgba(201, 168, 76, 0.6));
+  flex-shrink: 0;
+}
+
+.labelText {
+  font-size: rem(12);
+  font-weight: 600;
+  letter-spacing: rem(2.2);
+  text-transform: uppercase;
+  background: linear-gradient(90deg, #F8FAFC 0%, #E2C974 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .illustrationContainer {
@@ -23,13 +64,12 @@
   justify-content: center;
   align-items: center;
   width: 100%;
-  padding: rem(24) 0;
+  padding: rem(16) 0;
   overflow: hidden;
-  // background: radial-gradient(circle at center, var(--color-accent-soft) 0%, transparent 70%);
   border-radius: rem(24);
 
   @include respond-to(mobile) {
-    padding: rem(12) 0;
+    padding: rem(10) 0;
   }
 }
 
@@ -38,4 +78,16 @@
   height: auto;
   max-width: rem(800);
   display: block;
+
+  @include respond-to(tablet) {
+    width: 112%;
+    max-width: none;
+    margin: 0 -6%;
+  }
+
+  @include respond-to(mobile) {
+    width: 110%;
+    max-width: none;
+    margin: 0 -12.5%;
+  }
 }

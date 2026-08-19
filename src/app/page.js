@@ -17,14 +17,11 @@ export default function Home() {
       <Navbar />
 
       <HeroSection />
-      <main className="container">
-        <SkillsVisualSection />
-        {/* <SkillsSection /> */}
-        <AboutSection />
-        <ExperienceSection />
-        <ProjectsSection />
-        <ContactSection />
-      </main>
+      <AboutSection />
+      <SkillsVisualSection />
+      <ExperienceSection />
+      <ProjectsSection />
+      <ContactSection />
       <Footer />
     </>
   );

@@ -4,15 +4,20 @@
 .root {
   position: relative;
   min-height: 100vh;
-  min-height: 100dvh;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: rem(80) 0;
+  padding: rem(100) 0 rem(64) 0;
   overflow: hidden;
 
+  @include respond-to(tablet) {
+    min-height: auto; // Prevents mobile browser address-bar collapse height jump (dvh shift)
+    padding: rem(128) 0 rem(48) 0;
+  }
+
   @include respond-to(mobile) {
-    padding: rem(64) 0;
+    min-height: auto;
+    padding: rem(108) 0 rem(40) 0;
   }
 }
 
@@ -80,19 +85,20 @@
 .inner {
   position: relative;
   z-index: 1;
-  max-width: $max-width-content;
   width: 100%;
-  margin: 0 auto;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: rem(40);
 
   @include respond-to(tablet) {
-    flex-direction: column-reverse;
+    flex-direction: column;
     text-align: left;
-    padding-top: rem(20);
-    gap: rem(24);
+    gap: rem(32);
+  }
+
+  @include respond-to(mobile) {
+    gap: rem(28);
   }
 }
 
@@ -123,6 +129,7 @@
 .gradientText {
   background: linear-gradient(90deg, var(--color-text-secondary), var(--color-accent));
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
   display: inline-block;
 }
@@ -143,55 +150,50 @@
 .ctas {
   display: flex;
   flex-wrap: wrap;
-  gap: rem(14);
+  gap: rem(16);
   justify-content: flex-start;
+  align-items: center;
 }
 
 .btn {
+  position: relative;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-width: rem(160);
+  gap: rem(10);
   padding: rem(14) rem(28);
   font-size: rem(14);
   font-weight: 600;
   letter-spacing: rem(0.5);
-  border-radius: rem(8);
+  border-radius: rem(10);
   cursor: pointer;
-  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease, color 0.2s ease,
-    border-color 0.2s ease;
+  text-decoration: none;
+  overflow: hidden;
+}
 
-  &:hover {
-    transform: translateY(rem(-2));
-    opacity: 1;
-  }
-
-  &:active {
-    transform: translateY(0);
-  }
+.btnIcon {
+  width: rem(18);
+  height: rem(18);
+  flex-shrink: 0;
+  transition: transform 0.3s ease;
 }
 
 .btnPrimary {
-  background: var(--color-accent);
-  color: #0a0a0a;
-  border: 1px solid var(--color-accent);
-  box-shadow: 0 rem(4) rem(24) rgba(201, 168, 76, 0.25);
-
-  &:hover {
-    box-shadow: 0 rem(8) rem(32) rgba(201, 168, 76, 0.35);
-  }
+  background: linear-gradient(135deg, #e4cb7b 0%, #c9a84c 50%, #b08d33 100%);
+  color: #0c0b08;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 
+    0 4px 20px rgba(201, 168, 76, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.5);
 }
 
 .btnGhost {
-  background: transparent;
+  background: rgba(255, 255, 255, 0.03);
   color: var(--color-text-primary);
-  border: 1px solid var(--color-border);
-
-  &:hover {
-    border-color: var(--color-accent);
-    color: var(--color-accent);
-    background: var(--color-accent-soft);
-  }
+  border: 1px solid rgba(201, 168, 76, 0.3);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06);
 }
 
 .scrollIndicator {
@@ -254,8 +256,10 @@
   max-width: 50%;
 
   @include respond-to(tablet) {
-    max-width: 80%;
-    margin-top: rem(20);
+    max-width: rem(520);
+    justify-content: center;
+    margin-top: rem(8);
+    margin-bottom: rem(-8);
     align-self: center;
   }
 }

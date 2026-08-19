@@ -2,36 +2,16 @@ import styles from "./projects-section.module.scss";
 
 const PROJECTS = [
   {
-    name: "Aurora Commerce",
+    name: "Weldex",
     description:
-      "Headless storefront with dynamic merchandising zones and skeleton-first loading states.",
-    stack: ["Next.js", "TypeScript", "Stripe"],
-    github: "https://github.com",
-    live: "https://vercel.com",
+      "Public product website, admin dashboard, and employee management portal featuring role-based authentication, dynamic form workflows, and batch QR code generation.",
+    stack: ["React.js", "Next.js", "TanStack Query", "JavaScript", "SCSS"],
   },
   {
-    name: "Northwind Analytics",
+    name: "Linco LLC Dashboard",
     description:
-      "Dashboard for cohort reporting with chart theming and export flows (dummy project).",
-    stack: ["React", "Sass", "D3"],
-    github: "https://github.com",
-    live: "https://vercel.com",
-  },
-  {
-    name: "Studio Notes",
-    description:
-      "Minimal markdown workspace with offline cache and keyboard-first navigation.",
-    stack: ["Next.js", "PWA", "IndexedDB"],
-    github: "https://github.com",
-    live: "https://vercel.com",
-  },
-  {
-    name: "Pulse Design System",
-    description:
-      "Token-driven UI kit with documentation site and accessibility regression checks.",
-    stack: ["Storybook", "React", "A11y"],
-    github: "https://github.com",
-    live: "https://vercel.com",
+      "Internal project management application featuring interactive project tracking, data visualization dashboards, Role-Based Access Control (RBAC), and a folder-navigation file manager.",
+    stack: ["React.js", "Next.js", "TanStack Query", "JavaScript", "SCSS", "RBAC"],
   },
 ];
 
@@ -43,8 +23,20 @@ export default function ProjectsSection() {
     <section id="projects" className={`${styles.root} revealOnScroll`}>
       <div className="container">
         <header className={styles.header}>
-          <p className={styles.label}>Projects</p>
-          <h2 className={styles.title}>Selected work</h2>
+          <div className={styles.labelPill}>
+            <svg
+              className={styles.sparkIcon}
+              viewBox="0 0 16 16"
+              fill="currentColor"
+              aria-hidden="true"
+            >
+              <path d="M8 0L9.79611 6.20389L16 8L9.79611 9.79611L8 16L6.20389 9.79611L0 8L6.20389 6.20389L8 0Z" />
+            </svg>
+            <span className={styles.labelText}>Featured Projects</span>
+          </div>
+          <h2 className={styles.title}>
+            Selected <span className={styles.gradientText}>featured work</span>
+          </h2>
         </header>
 
         <div className={styles.grid}>
@@ -64,25 +56,6 @@ export default function ProjectsSection() {
                     </span>
                   ))}
                 </div>
-              </div>
-
-              <div className={styles.overlay}>
-                <a
-                  href={p.github}
-                  className={styles.overlayLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  GitHub
-                </a>
-                <a
-                  href={p.live}
-                  className={`${styles.overlayLink} ${styles.overlayLinkPrimary}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Live
-                </a>
               </div>
             </article>
           ))}

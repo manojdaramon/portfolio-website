@@ -17,7 +17,7 @@ export default function HeroSection() {
 
             <h1 className={styles.heading}>
               Hi, I'm Manoj.<br />
-              <span className={styles.gradientText}>Frontend Developer.</span>
+              <span className={styles.gradientText}>Software Developer.</span>
             </h1>
 
             <p className={styles.subheading}>
@@ -25,11 +25,55 @@ export default function HeroSection() {
             </p>
 
             <div className={styles.ctas}>
-              <a href="#projects" className={`${styles.btn} ${styles.btnPrimary}`}>
-                View Work
+              <a
+                href="/resume/Manoj Daramon - Resume.pdf"
+                download="Manoj_Daramon_Resume.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`${styles.btn} ${styles.btnPrimary}`}
+              >
+                <svg
+                  className={styles.btnIcon}
+                  viewBox="0 0 20 20"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M10 3V13M10 13L6 9M10 13L14 9M4 17H16"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+                <span>Resume</span>
               </a>
+
               <a href="#contact" className={`${styles.btn} ${styles.btnGhost}`}>
-                Contact Me
+                <svg
+                  className={styles.btnIcon}
+                  viewBox="0 0 20 20"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M3 5H17C17.5523 5 18 5.44772 18 6V14C18 14.5523 17.5523 15 17 15H3C2.44772 15 2 14.5523 2 14V6C2 5.44772 2.44772 5 3 5Z"
+                    stroke="currentColor"
+                    strokeWidth="1.8"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                  <path
+                    d="M3 6L10 11L17 6"
+                    stroke="currentColor"
+                    strokeWidth="1.8"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+                <span>Get in Touch</span>
               </a>
             </div>
           </div>

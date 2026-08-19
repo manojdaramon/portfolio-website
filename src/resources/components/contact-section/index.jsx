@@ -1,23 +1,19 @@
 "use client";
 
 import { useState } from "react";
+import { toast } from "react-hot-toast";
 import styles from "./contact-section.module.scss";
 
 const SOCIALS = [
   {
     label: "GitHub",
-    href: "https://github.com",
+    href: "https://github.com/manojdaramon",
     Icon: GitHubIcon,
   },
   {
     label: "LinkedIn",
-    href: "https://linkedin.com",
+    href: "https://www.linkedin.com/in/man0jjj/",
     Icon: LinkedInIcon,
-  },
-  {
-    label: "Twitter / X",
-    href: "https://twitter.com",
-    Icon: TwitterIcon,
   },
 ];
 
@@ -37,35 +33,95 @@ function LinkedInIcon() {
   );
 }
 
-function TwitterIcon() {
-  return (
-    <svg className={styles.socialIcon} viewBox="0 0 24 24" fill="currentColor" aria-hidden>
-      <path d="M18.244 3H21l-7.08 8.1L22 21h-6.56l-4.73-6.2L5.78 21H3l7.56-8.66L2 3h6.7l4.27 5.6L18.244 3zm-2.12 16.2h1.7L8.24 4.8H6.35l9.784 14.4z" />
-    </svg>
-  );
-}
-
 /**
  * Contact form (client-side only demo) plus social links.
  */
 export default function ContactSection() {
   const [status, setStatus] = useState("idle");
+  const [errors, setErrors] = useState({});
 
-  function handleSubmit(e) {
+  async function handleSubmit(e) {
     e.preventDefault();
-    setStatus("sent");
-    e.target.reset();
+
+    const formData = new FormData(e.target);
+    const name = formData.get("name")?.toString().trim() || "";
+    const email = formData.get("email")?.toString().trim() || "";
+    const message = formData.get("message")?.toString().trim() || "";
+
+    const newErrors = {};
+
+    if (!name || name.length < 2) {
+      newErrors.name = "Please enter your name (at least 2 characters).";
+    }
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!email || !emailRegex.test(email)) {
+      newErrors.email = "Please enter a valid email address.";
+    }
+
+    if (!message || message.length < 10) {
+      newErrors.message = "Please enter a message (at least 10 characters).";
+    }
+
+    if (Object.keys(newErrors).length > 0) {
+      setErrors(newErrors);
+      return;
+    }
+
+    setErrors({});
+    setStatus("submitting");
+
+    formData.append("access_key", "c8ea051a-f9c0-4b1c-9ee7-21a6e7094497");
+    formData.append("subject", "Portfolio Contact Form Submission - Manoj Daramon");
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formData,
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        setStatus("sent");
+        toast.success("Thank you! Your message has been sent successfully.");
+        e.target.reset();
+      } else {
+        setStatus("error");
+        toast.error("Failed to send message. Please try again.");
+      }
+    } catch (err) {
+      setStatus("error");
+      toast.error("Something went wrong. Please check your connection.");
+    }
+  }
+
+  function handleInputChange(field) {
+    if (errors[field]) {
+      setErrors((prev) => ({ ...prev, [field]: "" }));
+    }
   }
 
   return (
     <section id="contact" className={`${styles.root} revealOnScroll`}>
       <div className="container">
         <header className={styles.header}>
-          <p className={styles.label}>Contact</p>
-          <h2 className={styles.title}>Let&apos;s build something sharp</h2>
+          <div className={styles.labelPill}>
+            <svg
+              className={styles.sparkIcon}
+              viewBox="0 0 16 16"
+              fill="currentColor"
+              aria-hidden="true"
+            >
+              <path d="M8 0L9.79611 6.20389L16 8L9.79611 9.79611L8 16L6.20389 9.79611L0 8L6.20389 6.20389L8 0Z" />
+            </svg>
+            <span className={styles.labelText}>Contact</span>
+          </div>
+          <h2 className={styles.title}>
+            Let&apos;s build <span className={styles.gradientText}>something sharp</span>
+          </h2>
           <p className={styles.sub}>
-            Replace this form with your API route or form service when you are ready. For now it
-            only confirms on the client.
+            Have a project in mind, an open role, or just want to connect? Send a message below or reach out via social links.
           </p>
         </header>
 
@@ -78,12 +134,13 @@ export default function ContactSection() {
               <input
                 id="contact-name"
                 name="name"
-                className={styles.input}
+                className={`${styles.input} ${errors.name ? styles.inputError : ""}`}
                 type="text"
                 autoComplete="name"
                 placeholder="Your name"
-                required
+                onChange={() => handleInputChange("name")}
               />
+              {errors.name && <span className={styles.errorText}>{errors.name}</span>}
             </div>
             <div className={styles.field}>
               <label className={styles.fieldLabel} htmlFor="contact-email">
@@ -92,12 +149,13 @@ export default function ContactSection() {
               <input
                 id="contact-email"
                 name="email"
-                className={styles.input}
+                className={`${styles.input} ${errors.email ? styles.inputError : ""}`}
                 type="email"
                 autoComplete="email"
                 placeholder="you@example.com"
-                required
+                onChange={() => handleInputChange("email")}
               />
+              {errors.email && <span className={styles.errorText}>{errors.email}</span>}
             </div>
             <div className={styles.field}>
               <label className={styles.fieldLabel} htmlFor="contact-message">
@@ -106,26 +164,21 @@ export default function ContactSection() {
               <textarea
                 id="contact-message"
                 name="message"
-                className={styles.textarea}
+                className={`${styles.textarea} ${errors.message ? styles.inputError : ""}`}
                 placeholder="Tell me about the project, timeline, and goals."
-                required
+                onChange={() => handleInputChange("message")}
               />
+              {errors.message && <span className={styles.errorText}>{errors.message}</span>}
             </div>
-            <button type="submit" className={styles.submit}>
-              Send message
+            <button type="submit" className={styles.submit} disabled={status === "submitting"}>
+              {status === "submitting" ? "Sending..." : "Send Message"}
             </button>
-            {status === "sent" ? (
-              <p className={styles.feedback} role="status">
-                Thanks — your message is ready to wire up to a backend.
-              </p>
-            ) : null}
           </form>
 
           <aside className={styles.side}>
-            <h3 className={styles.sideTitle}>Elsewhere</h3>
+            <h3 className={styles.sideTitle}>Connect</h3>
             <p className={styles.sideText}>
-              Swap these URLs for your real profiles. Icons stay lightweight SVGs — no icon library
-              required.
+              Feel free to reach out directly or connect with me on these platforms:
             </p>
             <div className={styles.socials}>
               {SOCIALS.map(({ label, href, Icon }) => (

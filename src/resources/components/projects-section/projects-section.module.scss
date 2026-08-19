@@ -3,14 +3,21 @@
 
 .root {
   padding: rem(100) 0;
+  scroll-margin-top: rem(80);
   background: var(--color-bg-primary);
 
   @include respond-to(mobile) {
     padding: rem(72) 0;
+    scroll-margin-top: rem(68);
   }
 }
 
 .header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
   margin-bottom: rem(48);
 
   @include respond-to(mobile) {
@@ -18,21 +25,57 @@
   }
 }
 
-.label {
+.labelPill {
+  display: inline-flex;
+  align-items: center;
+  gap: rem(10);
+  padding: rem(8) rem(18);
+  border-radius: rem(9999);
+  background: linear-gradient(135deg, rgba(26, 24, 18, 0.85) 0%, rgba(12, 12, 12, 0.95) 100%);
+  border: 1px solid rgba(201, 168, 76, 0.3);
+  box-shadow: 
+    0 4px 20px rgba(0, 0, 0, 0.4),
+    0 0 16px rgba(201, 168, 76, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  margin-bottom: rem(16);
+}
+
+.sparkIcon {
+  width: rem(13);
+  height: rem(13);
+  color: var(--color-accent);
+  filter: drop-shadow(0 0 6px rgba(201, 168, 76, 0.6));
+  flex-shrink: 0;
+}
+
+.labelText {
   font-size: rem(12);
   font-weight: 600;
-  letter-spacing: rem(2.5);
+  letter-spacing: rem(2.2);
   text-transform: uppercase;
-  color: var(--color-accent);
-  margin-bottom: rem(12);
+  background: linear-gradient(90deg, #F8FAFC 0%, #E2C974 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .title {
   font-family: var(--font-heading);
-  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  font-size: clamp(1.85rem, 4vw, 2.75rem);
   font-weight: 700;
   color: var(--color-text-primary);
   margin: 0;
+  letter-spacing: rem(-0.5);
+  line-height: 1.2;
+}
+
+.gradientText {
+  background: linear-gradient(90deg, #FFFFFF 0%, var(--color-accent) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .grid {
@@ -57,10 +100,6 @@
   &:hover {
     border-color: rgba(201, 168, 76, 0.3);
     transform: translateY(rem(-4));
-
-    .overlay {
-      opacity: 1;
-    }
 
     .thumb {
       transform: scale(1.04);
@@ -101,7 +140,6 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  pointer-events: none;
 
   @include respond-to(mobile) {
     min-height: rem(260);
@@ -129,7 +167,6 @@
   display: flex;
   flex-wrap: wrap;
   gap: rem(8);
-  pointer-events: auto;
 }
 
 .tag {
@@ -142,57 +179,4 @@
   background: rgba(255, 255, 255, 0.06);
   color: var(--color-text-secondary);
   border: 1px solid var(--color-border);
-}
-
-.overlay {
-  position: absolute;
-  inset: 0;
-  z-index: 2;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: rem(14);
-  background: rgba(10, 10, 10, 0.88);
-  opacity: 0;
-  transition: opacity 0.35s ease;
-  pointer-events: none;
-
-  .card:hover & {
-    pointer-events: auto;
-  }
-}
-
-.overlayLink {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-width: rem(120);
-  padding: rem(12) rem(20);
-  font-size: rem(13);
-  font-weight: 600;
-  letter-spacing: rem(0.3);
-  text-transform: uppercase;
-  border-radius: rem(8);
-  border: 1px solid var(--color-border);
-  color: var(--color-text-primary);
-  transition: border-color 0.2s ease, background 0.2s ease, color 0.2s ease, transform 0.2s ease;
-
-  &:hover {
-    border-color: var(--color-accent);
-    background: var(--color-accent-soft);
-    color: var(--color-accent);
-    transform: translateY(rem(-2));
-    opacity: 1;
-  }
-}
-
-.overlayLinkPrimary {
-  background: var(--color-accent);
-  color: #0a0a0a;
-  border-color: var(--color-accent);
-
-  &:hover {
-    background: #d4b55d;
-    color: #0a0a0a;
-  }
 }
