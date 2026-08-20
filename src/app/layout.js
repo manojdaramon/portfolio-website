@@ -1,5 +1,6 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import { Toaster } from "react-hot-toast";
+import { GoogleAnalytics } from "@next/third-parties/google";
 import "./styles/globals.scss";
 
 const geistSans = Geist({
@@ -47,6 +48,7 @@ export default function RootLayout({ children }) {
           }}
         />
       </body>
+      <GoogleAnalytics gaId="G-42YG5KZ52D" />
     </html>
   );
 }
