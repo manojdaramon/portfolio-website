@@ -1,12 +1,13 @@
+import dynamic from "next/dynamic";
 import Navbar from "@/resources/components/navbar";
 import HeroSection from "@/resources/components/hero-section";
-import AboutSection from "@/resources/components/about-section";
-import ExperienceSection from "@/resources/components/experience-section";
-import ProjectsSection from "@/resources/components/projects-section";
-// import SkillsSection from "@/resources/components/skills-section";
-import SkillsVisualSection from "@/resources/components/skills-visual-section";
-import ContactSection from "@/resources/components/contact-section";
-import Footer from "@/resources/components/footer";
+
+const AboutSection = dynamic(() => import("@/resources/components/about-section"));
+const SkillsVisualSection = dynamic(() => import("@/resources/components/skills-visual-section"));
+const ExperienceSection = dynamic(() => import("@/resources/components/experience-section"));
+const ProjectsSection = dynamic(() => import("@/resources/components/projects-section"));
+const ContactSection = dynamic(() => import("@/resources/components/contact-section"));
+const Footer = dynamic(() => import("@/resources/components/footer"));
 
 /**
  * Single-page portfolio: sections composed in order with shared dark theme in globals.

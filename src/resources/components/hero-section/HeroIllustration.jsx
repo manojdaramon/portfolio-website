@@ -1,10 +1,11 @@
 "use client";
 
-import { motion } from 'framer-motion';
+import { m as motion, LazyMotion, domAnimation } from 'framer-motion';
 
 export default function HeroIllustration({ className }) {
   return (
-    <svg 
+    <LazyMotion features={domAnimation}>
+      <svg 
       className={className} 
       viewBox="0 0 800 600" 
       fill="none" 
@@ -147,5 +148,6 @@ export default function HeroIllustration({ className }) {
         />
       </g>
     </svg>
+    </LazyMotion>
   );
 }

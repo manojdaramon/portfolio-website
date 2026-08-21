@@ -14,6 +14,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
+  metadataBase: new URL("https://manoj-codes.vercel.app/"),
   title: "Manoj | Software Developer",
   description:
     "Portfolio of a software developer focused on modern applications, performance, and polished UX.",

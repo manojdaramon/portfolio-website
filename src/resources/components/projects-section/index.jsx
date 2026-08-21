@@ -1,3 +1,4 @@
+import Image from "next/image";
 import styles from "./projects-section.module.scss";
 
 const PROJECTS = [
@@ -6,12 +7,24 @@ const PROJECTS = [
     description:
       "Public product website, admin dashboard, and employee management portal featuring role-based authentication, dynamic form workflows, and batch QR code generation.",
     stack: ["React.js", "Next.js", "TanStack Query", "JavaScript", "SCSS"],
+    image: "/images/weldex.webp",
+    liveLink: "https://tirupathielectrodes.com/",
   },
   {
     name: "Linco LLC Dashboard",
     description:
       "Internal project management application featuring interactive project tracking, data visualization dashboards, Role-Based Access Control (RBAC), and a folder-navigation file manager.",
     stack: ["React.js", "Next.js", "TanStack Query", "JavaScript", "SCSS", "RBAC"],
+    image: "/images/linco-llc.webp",
+    liveLink: "https://www.lincollc.net/",
+  },
+  {
+    name: "Lyt til danske salmer",
+    description:
+      "A Danish hymns application providing inspiration for using hymns, complete with audio playback, custom playlists, and advanced search functionality.",
+    stack: ["React.js", "Next.js", "Web Audio API", "SCSS"],
+    image: "/images/salmer.webp",
+    liveLink: "https://lyttildanskesalmer.dk/",
   },
 ];
 
@@ -42,20 +55,37 @@ export default function ProjectsSection() {
         <div className={styles.grid}>
           {PROJECTS.map((p) => (
             <article key={p.name} className={styles.card}>
-              <div className={styles.thumb} aria-hidden>
-                <div className={styles.thumbPattern} />
+              <div className={styles.thumb}>
+                <Image
+                  src={p.image}
+                  alt={p.name}
+                  fill
+                  className={styles.projectImage}
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                />
+                <div className={styles.thumbOverlay} />
               </div>
 
               <div className={styles.body}>
-                <h3 className={styles.projectName}>{p.name}</h3>
-                <p className={styles.desc}>{p.description}</p>
-                <div className={styles.tags}>
-                  {p.stack.map((t) => (
-                    <span key={t} className={styles.tag}>
-                      {t}
-                    </span>
-                  ))}
+                <div className={styles.cardHeader}>
+                  <h3 className={styles.projectName}>{p.name}</h3>
+                  {p.liveLink && (
+                    <a
+                      href={p.liveLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={styles.liveLink}
+                      aria-label={`Visit ${p.name}`}
+                    >
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                      </svg>
+                    </a>
+                  )}
                 </div>
+                <p className={styles.desc}>{p.description}</p>
               </div>
             </article>
           ))}

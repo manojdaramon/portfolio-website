@@ -33,7 +33,7 @@
   border-radius: rem(9999);
   background: linear-gradient(135deg, rgba(26, 24, 18, 0.85) 0%, rgba(12, 12, 12, 0.95) 100%);
   border: 1px solid rgba(201, 168, 76, 0.3);
-  box-shadow: 
+  box-shadow:
     0 4px 20px rgba(0, 0, 0, 0.4),
     0 0 16px rgba(201, 168, 76, 0.12),
     inset 0 1px 0 rgba(255, 255, 255, 0.08);
@@ -79,16 +79,31 @@
 }
 
 .grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  display: flex;
+  flex-wrap: wrap;
   gap: rem(24);
 
-  @include respond-to(tablet-sm) {
-    grid-template-columns: 1fr;
+  @include respond-to(laptop) {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: rem(24);
+    
+    // Hide scrollbar for a cleaner carousel look
+    &::-webkit-scrollbar {
+      display: none;
+    }
+    -ms-overflow-style: none;
+    scrollbar-width: none;
   }
 }
 
 .card {
+  width: calc(33.3333% - rem(16));
+  flex-shrink: 0;
   position: relative;
   border-radius: rem(14);
   overflow: hidden;
@@ -96,13 +111,26 @@
   border: 1px solid var(--color-border);
   min-height: rem(280);
   transition: border-color 0.3s ease, transform 0.3s ease;
+  scroll-snap-align: start;
+
+  @include respond-to(laptop) {
+    // Show 1 full card and a peek of the next to indicate scrolling
+    width: calc(55% - rem(12));
+  }
+
+  @include respond-to(tablet-sm) {
+    // Show 1 card and a larger peek on mobile
+    width: calc(85% - rem(12));
+    scroll-snap-align: center;
+  }
 
   &:hover {
     border-color: rgba(201, 168, 76, 0.3);
     transform: translateY(rem(-4));
 
-    .thumb {
-      transform: scale(1.04);
+    .projectImage {
+      transform: scale(1.05);
+      opacity: 0.85;
     }
   }
 
@@ -114,32 +142,35 @@
 .thumb {
   position: absolute;
   inset: 0;
-  background: linear-gradient(145deg, #1a1a1a 0%, #0f0f0f 50%, #1c1510 100%);
-  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+  background: var(--color-bg-tertiary);
+  overflow: hidden;
 }
 
-.thumbPattern {
+.projectImage {
+  object-fit: cover;
+  opacity: 1;
+  transition: opacity 0.4s ease, transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.thumbOverlay {
   position: absolute;
   inset: 0;
-  opacity: 0.4;
-  background-image: repeating-linear-gradient(
-    -45deg,
-    transparent,
-    transparent rem(10),
-    rgba(255, 255, 255, 0.03) rem(10),
-    rgba(255, 255, 255, 0.03) rem(11)
-  );
+  background: linear-gradient(to bottom,
+      rgba(0, 0, 0, 0) 0%,
+      rgba(0, 0, 0, 0) 35%,
+      rgba(10, 10, 10, 0.8) 75%,
+      rgba(10, 10, 10, 1) 100%);
+  pointer-events: none;
 }
 
 .body {
   position: relative;
   z-index: 1;
-  padding: rem(28);
-  height: 100%;
-  min-height: rem(280);
+  padding: rem(32);
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
+  height: 100%;
 
   @include respond-to(mobile) {
     min-height: rem(260);
@@ -147,36 +178,46 @@
   }
 }
 
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: rem(10);
+}
+
 .projectName {
   font-family: var(--font-heading);
   font-size: rem(22);
   font-weight: 600;
+  color: #ffffff;
+  margin: 0;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.liveLink {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: rem(36);
+  height: rem(36);
+  border-radius: rem(8);
+  background: rgba(255, 255, 255, 0.05);
   color: var(--color-text-primary);
-  margin: 0 0 rem(10);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.2s ease;
+
+  &:hover {
+    background: var(--color-accent);
+    color: #121212;
+    border-color: var(--color-accent);
+    transform: translateY(rem(-2));
+  }
 }
 
 .desc {
-  font-size: rem(14);
+  font-size: rem(15);
   line-height: 1.6;
-  color: var(--color-text-muted);
-  margin: 0 0 rem(16);
-  max-width: rem(400);
-}
-
-.tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: rem(8);
-}
-
-.tag {
-  font-size: rem(11);
-  font-weight: 600;
-  letter-spacing: rem(0.5);
-  text-transform: uppercase;
-  padding: rem(5) rem(10);
-  border-radius: rem(4);
-  background: rgba(255, 255, 255, 0.06);
-  color: var(--color-text-secondary);
-  border: 1px solid var(--color-border);
+  color: rgba(255, 255, 255, 0.9);
+  margin: 0;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
 }
