@@ -26,7 +26,7 @@ export default function HeroSection() {
 
             <div className={styles.ctas}>
               <a
-                href="/resume/Manoj Daramon - Resume.pdf"
+                href="/resume/Manoj Daramon Resume.pdf"
                 download="Manoj_Daramon_Resume.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
