@@ -26,6 +26,70 @@ const PROJECTS = [
     image: "/images/salmer.webp",
     liveLink: "https://lyttildanskesalmer.dk/",
   },
+  {
+    name: "Happy Chalet",
+    description:
+      "A premium childcare center website emphasizing a secure, home-away-from-home nurturing environment for infants and preschoolers to grow through joyful play.",
+    stack: ["React.js", "Next.js", "SCSS"],
+    image: "/images/happy-chalet.png",
+    liveLink: "https://www.thehappychalet.ca/",
+  },
+  {
+    name: "Second Aid",
+    description:
+      "A professional healthcare website designed to provide patients with easy access to medical services, clinic information, and doctor profiles.",
+    stack: ["React.js", "Next.js", "Tailwind CSS", "JavaScript"],
+    image: "/images/second-aid.webp",
+    liveLink: "https://www.secondaid.in/",
+  },
+  {
+    name: "Blossom Buds",
+    description:
+      "A premier early learning centre platform providing a safe, nurturing environment with engaging, play-based learning and parent communication tools.",
+    stack: ["React.js", "Next.js", "Tailwind CSS"],
+    image: "/images/blossom-buds.png",
+    liveLink: "https://blossombuds.craftnotion.com/",
+  },
+  {
+    name: "ToonPandas",
+    description:
+      "A creative studio website specializing in animation, film production, and design, bringing brands to life with innovative storytelling and visual excellence.",
+    stack: ["React.js", "Next.js", "SCSS", "GSAP"],
+    image: "/images/toonpandas.webp",
+    liveLink: "https://www.toonpandas.com/",
+  },
+  {
+    name: "BloomBerry Kids",
+    description:
+      "A top childcare and early learning center website showcasing modern educational programs, interactive galleries, and streamlined admissions for toddlers.",
+    stack: ["React.js", "Next.js", "SCSS"],
+    image: "/images/bloom-berry.png",
+    liveLink: "https://www.bloomberrykids.ca/",
+  },
+  {
+    name: "United Veteran Systems",
+    description:
+      "An informational website for property investors and landlords to learn about veteran housing opportunities and real estate alignment.",
+    stack: ["React.js", "Next.js", "Tailwind CSS"],
+    image: "/images/united-veteran.webp",
+    liveLink: "https://united-veteran-systems.vercel.app/",
+  },
+  {
+    name: "Dreamland Childcare",
+    description:
+      "An engaging early childhood education portal designed to provide parents with resources, curriculum insights, and safe environmental policies.",
+    stack: ["React.js", "Next.js", "SCSS", "Framer Motion"],
+    image: "/images/dreamland.webp",
+    liveLink: "https://www.dreamlandchildcare.org/",
+  },
+  {
+    name: "Bright Horizon",
+    description:
+      "A modern preschool and infant care platform offering detailed insights into nurturing early learning programs, curriculum standards, and easy enrollment.",
+    stack: ["React.js", "Next.js", "SCSS"],
+    image: "/images/bright-horizon.png",
+    liveLink: "https://www.brighthorizonchildcare.ca/",
+  },
 ];
 
 /**
@@ -63,7 +127,6 @@ export default function ProjectsSection() {
                   className={styles.projectImage}
                   sizes="(max-width: 768px) 100vw, 50vw"
                 />
-                <div className={styles.thumbOverlay} />
               </div>
 
               <div className={styles.body}>

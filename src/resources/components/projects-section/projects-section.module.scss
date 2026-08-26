@@ -79,11 +79,12 @@
 }
 
 .grid {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   gap: rem(24);
 
-  @include respond-to(laptop) {
+  @include respond-to(tablet) {
+    display: flex;
     flex-wrap: nowrap;
     overflow-x: auto;
     overflow-y: hidden;
@@ -92,7 +93,7 @@
     -webkit-overflow-scrolling: touch;
     padding-bottom: rem(24);
     
-    // Hide scrollbar for a cleaner carousel look
+    // Hide scrollbar on smaller devices for cleaner look, like before
     &::-webkit-scrollbar {
       display: none;
     }
@@ -102,80 +103,42 @@
 }
 
 .card {
-  width: calc(33.3333% - rem(16));
-  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
   position: relative;
   border-radius: rem(14);
   overflow: hidden;
   background: var(--color-bg-card);
   border: 1px solid var(--color-border);
-  min-height: rem(280);
-  transition: border-color 0.3s ease, transform 0.3s ease;
-  scroll-snap-align: start;
 
-  @include respond-to(laptop) {
-    // Show 1 full card and a peek of the next to indicate scrolling
+  @include respond-to(tablet) {
     width: calc(55% - rem(12));
-  }
-
-  @include respond-to(tablet-sm) {
-    // Show 1 card and a larger peek on mobile
-    width: calc(85% - rem(12));
+    flex-shrink: 0;
     scroll-snap-align: center;
   }
 
-  &:hover {
-    border-color: rgba(201, 168, 76, 0.3);
-    transform: translateY(rem(-4));
-
-    .projectImage {
-      transform: scale(1.05);
-      opacity: 0.85;
-    }
-  }
-
   @include respond-to(mobile) {
-    min-height: rem(260);
+    width: calc(85% - rem(12));
   }
 }
 
 .thumb {
-  position: absolute;
-  inset: 0;
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10;
   background: var(--color-bg-tertiary);
   overflow: hidden;
 }
 
 .projectImage {
   object-fit: cover;
-  opacity: 1;
-  transition: opacity 0.4s ease, transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
-}
-
-.thumbOverlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to bottom,
-      rgba(0, 0, 0, 0) 0%,
-      rgba(0, 0, 0, 0) 35%,
-      rgba(10, 10, 10, 0.8) 75%,
-      rgba(10, 10, 10, 1) 100%);
-  pointer-events: none;
 }
 
 .body {
-  position: relative;
-  z-index: 1;
-  padding: rem(32);
+  padding: rem(24);
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
-  height: 100%;
-
-  @include respond-to(mobile) {
-    min-height: rem(260);
-    padding: rem(22);
-  }
+  flex-grow: 1;
 }
 
 .cardHeader {
@@ -189,9 +152,8 @@
   font-family: var(--font-heading);
   font-size: rem(22);
   font-weight: 600;
-  color: #ffffff;
+  color: var(--color-text-primary);
   margin: 0;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .liveLink {
@@ -217,7 +179,7 @@
 .desc {
   font-size: rem(15);
   line-height: 1.6;
-  color: rgba(255, 255, 255, 0.9);
+  color: var(--color-text-secondary);
   margin: 0;
-  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+  margin-top: rem(8);
 }
