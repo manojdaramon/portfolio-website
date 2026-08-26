@@ -17,7 +17,10 @@ export const metadata = {
   metadataBase: new URL("https://manoj-codes.vercel.app/"),
   title: "Manoj | Software Developer",
   description:
-    "Portfolio of a software developer focused on modern applications, performance, and polished UX.",
+    "Software developer building modern, responsive web applications with a focus on clean code, performance, and great user experiences.",
+  openGraph: {
+    images: ["/images/open-graph-image.png"],
+  },
 };
 
 export default function RootLayout({ children }) {
