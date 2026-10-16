@@ -10,11 +10,19 @@
   },
   "dependencies": {
     "@next/third-parties": "^16.3.1",
+    "@remotion/bundler": "^4.0.536",
+    "@remotion/cli": "^4.0.536",
+    "@remotion/player": "^4.0.536",
+    "@remotion/renderer": "^4.0.536",
     "framer-motion": "^12.42.2",
+    "google-tts-api": "^2.0.2",
+    "html-to-image": "^1.11.13",
+    "msedge-tts": "^2.1.0",
     "next": "16.2.2",
     "react": "19.2.4",
     "react-dom": "19.2.4",
     "react-hot-toast": "^2.6.0",
+    "remotion": "^4.0.536",
     "sass": "^1.99.0"
   },
   "devDependencies": {

@@ -1,0 +1,61 @@
+{
+  "date": "15 October 2026",
+  "headline": "HYDERABAD WALKINS",
+  "theme": "hyderabad-gold",
+  "secondsPerJob": 4,
+  "introDurationSec": 3,
+  "ctaDurationSec": 4.5,
+  "ctaHeadline": "FULL JOB DETAILS",
+  "ctaSubheadline": "CHECK LINK IN BIO",
+  "ctaHighlight": "COMMENT 'LINK' TO GET THE LINK",
+  "ctaDisclaimer": "Please verify official job postings before attending walk-in drives.",
+  "jobs": [
+    {
+      "id": "job-1",
+      "company": "Tech Mahindra",
+      "role": "Service Desk / International Voice",
+      "experience": "1–4 Years",
+      "walkinDate": "15 Oct 2026",
+      "benefits": "24/7 Rotational Shifts, Both Way Cab",
+      "notes": "Immediate joiners preferred"
+    },
+    {
+      "id": "job-2",
+      "company": "IntouchCX",
+      "role": "International Voice Process",
+      "experience": "1–2 Years",
+      "walkinDate": "15 Oct 2026",
+      "benefits": "Excellent Incentives + Fixed Allowances",
+      "notes": "Excellent English fluency required"
+    },
+    {
+      "id": "job-3",
+      "company": "Examity",
+      "role": "Walk-in Drive",
+      "experience": "0–4 Years",
+      "walkinDate": "15 Oct 2026",
+      "benefits": "5-Day Workweek, Food, Two-Way Cab",
+      "notes": "Freshers & experienced eligible"
+    },
+    {
+      "id": "job-4",
+      "company": "Oliva Skin & Hair Clinics",
+      "role": "Business Process Associate",
+      "experience": "0–3 Years",
+      "walkinDate": "15 Oct 2026",
+      "benefits": "Day Shift, Attractive Bonus Structure",
+      "notes": "Good communication skills"
+    },
+    {
+      "id": "job-5",
+      "company": "TP",
+      "role": "International Chat Support Executive",
+      "experience": "0–3 Years",
+      "walkinDate": "15 Oct 2026",
+      "benefits": "Performance Bonus, Medical Insurance",
+      "notes": "Typing speed 35+ WPM"
+    }
+  ],
+  "narrationScript": "Hello Hyderabad! Here are the top walk-in drives happening on 15 October 2026. Job number 1: Tech Mahindra is hiring for Service Desk / International Voice. Experience required is 1–4 Years. Highlights include 24/7 Rotational Shifts, Both Way Cab. Job number 2: IntouchCX is hiring for International Voice Process. Experience required is 1–2 Years. Highlights include Excellent Incentives + Fixed Allowances. Job number 3: Examity is hiring for Walk-in Drive. Experience required is 0–4 Years. Highlights include 5-Day Workweek, Food, Two-Way Cab. Job number 4: Oliva Skin & Hair Clinics is hiring for Business Process Associate. Experience required is 0–3 Years. Highlights include Day Shift, Attractive Bonus Structure. Job number 5: TP is hiring for International Chat Support Executive. Experience required is 0–3 Years. Highlights include Performance Bonus, Medical Insurance. For complete venue and registration details, check the link in bio, or simply comment 'link' to get the link. Don't forget to share this with your friends looking for jobs in Hyderabad!",
+  "audioUrl": "/generated-reels/voice-1792162195622.mp3"
+}
