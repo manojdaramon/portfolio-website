@@ -229,7 +229,15 @@ export default function WalkinsReelClient() {
           </p>
         </div>
 
-        <div className={styles.headerActions}>
+        <div className={styles.headerActions} style={{ display: "flex", gap: "10px", alignItems: "center" }}>
+          <a
+            href="/tools/poster"
+            className={styles.secondaryButton}
+            style={{ textDecoration: "none" }}
+            title="Open Poster Generator"
+          >
+            🖼️ Switch to Poster
+          </a>
           <button
             onClick={() => setFormData(sampleJobsData)}
             className={styles.secondaryButton}

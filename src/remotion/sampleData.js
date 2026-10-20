@@ -12,48 +12,73 @@ export const sampleJobsData = {
   jobs: [
     {
       id: "job-1",
-      company: "Tech Mahindra",
-      role: "Service Desk / International Voice",
-      experience: "1–4 Years",
-      walkinDate: "15 Oct 2026",
-      benefits: "24/7 Rotational Shifts, Both Way Cab",
-      notes: "Immediate joiners preferred"
+      company: "INTOUCHCX",
+      role: "International Non-Voice Process",
+      experience: "1–2 Years",
+      walkinDate: "16 Oct 2026",
+      benefits: "Immediate Joiners Only",
+      notes: "Rotational Shifts, Both Way Cab",
+      url: "https://www.naukri.com/job-listings-mega-walkin-drive-for-international-non-voice-process-imm-joiner-exp-intouchcx-hyderabad-1-to-2-years-141026041672?utmcampaign=androidjd&utmsource=share&src=sharedjd"
     },
     {
       id: "job-2",
-      company: "IntouchCX",
-      role: "International Voice Process",
-      experience: "1–2 Years",
-      walkinDate: "15 Oct 2026",
-      benefits: "Excellent Incentives + Fixed Allowances",
-      notes: "Excellent English fluency required"
+      company: "LEE PHARMA",
+      role: "Production / RA / QC / R&D / QA",
+      experience: "2–7 Years",
+      walkinDate: "16 Oct 2026",
+      benefits: "Attractive Salary Package",
+      notes: "Pharma manufacturing experience",
+      url: "https://www.naukri.com/job-listings-walkin-interview-for-production-ra-qc-r-d-qa-lee-pharma-hyderabad-2-to-7-years-130626012071?utmcampaign=androidjd&utmsource=share&src=sharedjd"
     },
     {
       id: "job-3",
-      company: "Examity",
-      role: "Walk-in Drive",
-      experience: "0–4 Years",
-      walkinDate: "15 Oct 2026",
-      benefits: "5-Day Workweek, Food, Two-Way Cab",
-      notes: "Freshers & experienced eligible"
+      company: "INTOUCHCX",
+      role: "International Voice Process Executive",
+      experience: "1–4 Years",
+      walkinDate: "16 Oct 2026",
+      benefits: "Incentives + Fixed Allowances",
+      notes: "Excellent English Fluency",
+      url: "https://www.naukri.com/job-listings-international-voice-process-executive-intouchcx-hyderabad-1-to-4-years-121026007676"
     },
     {
       id: "job-4",
-      company: "Oliva Skin & Hair Clinics",
-      role: "Business Process Associate",
-      experience: "0–3 Years",
-      walkinDate: "15 Oct 2026",
-      benefits: "Day Shift, Attractive Bonus Structure",
-      notes: "Good communication skills"
+      company: "EXAMITY",
+      role: "Customer Support / Process",
+      experience: "0–4 Years",
+      walkinDate: "16 Oct 2026",
+      benefits: "Free Food, Two-Way Cab",
+      notes: "Undergrads require 6+ mos exp",
+      url: "https://www.naukri.com/job-listings-mega-walkin-drive-examity-malkajgiri-5-days-work-food-2-waycab-examity-hyderabad-0-to-4-years-101026010642?utmcampaign=androidjd&utmsource=share&src=sharedjd"
     },
     {
       id: "job-5",
-      company: "TP",
+      company: "KIMS HOSPITALS",
+      role: "Pharmacist",
+      experience: "1–3 Years",
+      walkinDate: "16 Oct 2026",
+      benefits: "Kondapur Location, Hospital Perks",
+      notes: "Preference: Male Candidates",
+      url: "https://www.naukri.com/job-listings-pharmacist-krishna-institute-of-medical-sciences-hyderabad-kondapur-1-to-3-years-240326011246?utmcampaign=androidjd&utmsource=share&src=sharedjd"
+    },
+    {
+      id: "job-6",
+      company: "REGALIX",
+      role: "International Voice – Sales",
+      experience: "0–5 Years",
+      walkinDate: "16 Oct 2026",
+      benefits: "Sales Incentives, US Shifts",
+      notes: "Freshers & Experienced eligible",
+      url: "https://www.naukri.com/job-listings-walk-in-international-voice-sales-regalix-hyderabad-0-to-5-years-151026025696?utmcampaign=androidjd&utmsource=share&src=sharedjd"
+    },
+    {
+      id: "job-7",
+      company: "TELEPERFORMANCE",
       role: "International Chat Support Executive",
       experience: "0–3 Years",
-      walkinDate: "15 Oct 2026",
-      benefits: "Performance Bonus, Medical Insurance",
-      notes: "Typing speed 35+ WPM"
+      walkinDate: "16 Oct 2026",
+      benefits: "Medical Insurance, Performance Bonus",
+      notes: "Typing speed 35+ WPM",
+      url: "https://www.naukri.com/job-listings-international-chat-support-executive-tp-hyderabad-0-to-3-years-121026036240?utmcampaign=androidjd&utmsource=share&src=sharedjd"
     }
   ]
 };
@@ -125,6 +150,40 @@ export const COLOR_THEMES = {
     badgeBg: "rgba(99, 102, 241, 0.2)",
     badgeText: "#C7D2FE",
     ctaHighlightBg: "#6366F1",
+    ctaHighlightText: "#FFFFFF"
+  },
+  "electric-sapphire": {
+    name: "Electric Sapphire (Custom)",
+    background: "linear-gradient(180deg, #070709 0%, #0b111e 50%, #040508 100%)",
+    accent: "#007FF5",
+    accentGradient: "linear-gradient(135deg, #007FF5 0%, #38BDF8 100%)",
+    headerGlow: "rgba(0, 127, 245, 0.32)",
+    cardBg: "rgba(11, 17, 30, 0.90)",
+    cardBorder: "rgba(0, 127, 245, 0.35)",
+    activeCardBorder: "#38BDF8",
+    textPrimary: "#FCFCFD",
+    textSecondary: "#E2E8F0",
+    textMuted: "#94A3B8",
+    badgeBg: "rgba(0, 127, 245, 0.18)",
+    badgeText: "#60A5FA",
+    ctaHighlightBg: "#007FF5",
+    ctaHighlightText: "#FCFCFD"
+  },
+  "clean-white": {
+    name: "Clean Editorial White",
+    background: "#FFFFFF",
+    accent: "#0066FF",
+    accentGradient: "linear-gradient(135deg, #0052D4 0%, #4364F7 50%, #6FB1FC 100%)",
+    headerGlow: "rgba(0, 102, 255, 0.08)",
+    cardBg: "#FFFFFF",
+    cardBorder: "#E2E8F0",
+    activeCardBorder: "#0066FF",
+    textPrimary: "#0A0B10",
+    textSecondary: "#334155",
+    textMuted: "#64748B",
+    badgeBg: "#EFF6FF",
+    badgeText: "#1D4ED8",
+    ctaHighlightBg: "#0066FF",
     ctaHighlightText: "#FFFFFF"
   }
 };

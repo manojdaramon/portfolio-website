@@ -37,7 +37,7 @@ export default function AboutSection() {
               I am a Software Developer with 1+ year of professional experience building responsive, user-focused web applications. Specializing in React.js, Next.js, JavaScript, and SCSS, I transform ideas and designs into pixel-accurate, maintainable interfaces.
             </p>
             <p>
-              Currently at Craftnotion, I've built and maintained 10+ web applications, ranging from administrative dashboards and role-based access systems to interactive data management platforms. I take pride in writing clean code, optimizing performance, and delivering seamless user experiences.
+              Currently at Craftnotion, I&apos;ve built and maintained 10+ web applications, ranging from administrative dashboards and role-based access systems to interactive data management platforms. I take pride in writing clean code, optimizing performance, and delivering seamless user experiences.
             </p>
           </div>
 

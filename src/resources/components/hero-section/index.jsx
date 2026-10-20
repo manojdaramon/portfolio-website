@@ -16,7 +16,7 @@ export default function HeroSection() {
           <div className={styles.content}>
 
             <h1 className={styles.heading}>
-              Hi, I'm Manoj.<br />
+              Hi, I&apos;m Manoj.<br />
               <span className={styles.gradientText}>Software Developer.</span>
             </h1>
 

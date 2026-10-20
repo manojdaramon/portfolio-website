@@ -85,9 +85,9 @@ export function WalkinsReelComposition({
   // Fade out job list during CTA screen transition
   const jobsOpacity = isCta
     ? interpolate(frame, [ctaStartFrame, ctaStartFrame + 15], [1, 0], {
-        extrapolateLeft: "clamp",
-        extrapolateRight: "clamp"
-      })
+      extrapolateLeft: "clamp",
+      extrapolateRight: "clamp"
+    })
     : 1;
 
   // CTA screen animation
@@ -145,8 +145,8 @@ export function WalkinsReelComposition({
           <Audio
             src={
               audioUrl.startsWith("http://") ||
-              audioUrl.startsWith("https://") ||
-              audioUrl.startsWith("data:")
+                audioUrl.startsWith("https://") ||
+                audioUrl.startsWith("data:")
                 ? audioUrl
                 : staticFile(audioUrl.startsWith("/") ? audioUrl.slice(1) : audioUrl)
             }
@@ -204,20 +204,7 @@ export function WalkinsReelComposition({
           </span>
         </div>
 
-        <div
-          style={{
-            padding: "8px 20px",
-            borderRadius: "999px",
-            background: activeTheme.badgeBg,
-            border: `1px solid ${activeTheme.accent}`,
-            color: activeTheme.badgeText,
-            fontSize: "20px",
-            fontWeight: 700,
-            letterSpacing: "1px"
-          }}
-        >
-          TODAY'S DRIVES
-        </div>
+
       </div>
 
       {/* Main Header / Intro Section */}
@@ -266,18 +253,8 @@ export function WalkinsReelComposition({
             <span style={{ color: activeTheme.accent }}>📅</span>
             <span>{date}</span>
           </div>
-          <span style={{ color: activeTheme.textMuted, fontSize: "24px" }}>
-            •
-          </span>
-          <div
-            style={{
-              fontSize: "24px",
-              fontWeight: 600,
-              color: activeTheme.textMuted
-            }}
-          >
-            {totalJobs} Verified Drives
-          </div>
+
+
         </div>
       </div>
 
@@ -469,79 +446,79 @@ export function WalkinsReelComposition({
                     )}
                   </div>
 
-                {/* Role */}
-                <div
-                  style={{
-                    fontSize: "28px",
-                    fontWeight: 700,
-                    color: activeTheme.accent,
-                    marginBottom: "16px",
-                    lineHeight: 1.2
-                  }}
-                >
-                  {job.role}
-                </div>
+                  {/* Role */}
+                  <div
+                    style={{
+                      fontSize: "28px",
+                      fontWeight: 700,
+                      color: activeTheme.accent,
+                      marginBottom: "16px",
+                      lineHeight: 1.2
+                    }}
+                  >
+                    {job.role}
+                  </div>
 
-                {/* Meta Row: Experience & Highlights */}
-                <div
-                  style={{
-                    display: "flex",
-                    flexWrap: "wrap",
-                    alignItems: "center",
-                    gap: "14px"
-                  }}
-                >
-                  {job.experience && (
-                    <div
-                      style={{
-                        display: "inline-flex",
-                        alignItems: "center",
-                        gap: "8px",
-                        background: activeTheme.badgeBg,
-                        border: `1px solid ${activeTheme.cardBorder}`,
-                        padding: "6px 16px",
-                        borderRadius: "10px",
-                        fontSize: "22px",
-                        fontWeight: 700,
-                        color: activeTheme.badgeText
-                      }}
-                    >
-                      <span>💼 Exp:</span>
-                      <span>{job.experience}</span>
-                    </div>
-                  )}
+                  {/* Meta Row: Experience & Highlights */}
+                  <div
+                    style={{
+                      display: "flex",
+                      flexWrap: "wrap",
+                      alignItems: "center",
+                      gap: "14px"
+                    }}
+                  >
+                    {job.experience && (
+                      <div
+                        style={{
+                          display: "inline-flex",
+                          alignItems: "center",
+                          gap: "8px",
+                          background: activeTheme.badgeBg,
+                          border: `1px solid ${activeTheme.cardBorder}`,
+                          padding: "6px 16px",
+                          borderRadius: "10px",
+                          fontSize: "22px",
+                          fontWeight: 700,
+                          color: activeTheme.badgeText
+                        }}
+                      >
+                        <span>💼 Exp:</span>
+                        <span>{job.experience}</span>
+                      </div>
+                    )}
 
-                  {job.benefits && (
-                    <div
-                      style={{
-                        display: "inline-flex",
-                        alignItems: "center",
-                        gap: "8px",
-                        background: "rgba(255, 255, 255, 0.06)",
-                        padding: "6px 16px",
-                        borderRadius: "10px",
-                        fontSize: "20px",
-                        fontWeight: 600,
-                        color: activeTheme.textSecondary
-                      }}
-                    >
-                      <span>✨</span>
-                      <span>{job.benefits}</span>
-                    </div>
-                  )}
+                    {job.benefits && (
+                      <div
+                        style={{
+                          display: "inline-flex",
+                          alignItems: "center",
+                          gap: "8px",
+                          background: "rgba(255, 255, 255, 0.06)",
+                          padding: "6px 16px",
+                          borderRadius: "10px",
+                          fontSize: "20px",
+                          fontWeight: 600,
+                          color: activeTheme.textSecondary
+                        }}
+                      >
+                        <span>✨</span>
+                        <span>{job.benefits}</span>
+                      </div>
+                    )}
 
-                  {job.notes && (
-                    <div
-                      style={{
-                        fontSize: "18px",
-                        fontStyle: "italic",
-                        color: activeTheme.textMuted
-                      }}
-                    >
-                      {job.notes}
-                    </div>
-                  )}
-                </div>
+                    {job.notes && (
+                      <div
+                        style={{
+                          fontSize: "18px",
+                          fontStyle: "italic",
+                          color: activeTheme.textMuted
+                        }}
+                      >
+                        {job.notes}
+                      </div>
+                    )}
+                  </div>
                 </div>
               </div>
             );
@@ -711,7 +688,7 @@ export function WalkinsReelComposition({
               gap: "8px"
             }}
           >
-            <span>Comment "LINK" for details</span>
+            <span>Comment &quot;LINK&quot; for details</span>
             <span>💬</span>
           </div>
         </div>
